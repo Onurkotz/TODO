@@ -1,13 +1,27 @@
-import React from 'react'
+import { useState } from "react";
+import { useSelector } from "react-redux";
 
-function input() {
+function Input() {
+  const [inval, setInval] = useState("");
+  const todoItems = useSelector((state) => state.todo.items);
+  console.log(todoItems);
+  const handleSubmit = () => {
+    console.log(inval);
+  };
+
   return (
     <div>
-        <form>
-			<input className="new-todo" placeholder="What needs to be done?" autoFocus />
-		</form>
+      <form onSubmit={handleSubmit}>
+        <input
+          className="new-todo"
+          placeholder="What needs to be done?"
+          autoFocus
+          onChange={(e) => setInval(e.target.value)}
+          value={inval}
+        />
+      </form>
     </div>
-  )
+  );
 }
 
-export default input
+export default Input;

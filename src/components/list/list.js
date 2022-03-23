@@ -1,42 +1,32 @@
 import React from "react";
-import Footer from "../footer/footer"
+import Footer from "../footer/footer";
+import { useSelector } from "react-redux";
 
-function list() {
+function List() {
+  const items = useSelector((state) => state.todo.items);
+
+
   return (
     <div>
-      
-        <section className="main">
-          <input className="toggle-all" type="checkbox" />
-          <label htmlFor="toggle-all">Mark al as complete</label>
+      <section className="main">
+        <ul className="todo-list">
+          {items.map((data) => {
+            return (
+              <li key={data.id}>
+                <div className="view">
+                  <input className="toggle" type="checkbox" />
+                  <label>{data.title}</label>
+                  <button className="destroy"></button>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
 
-          <ul className="todo-list">
-            <li className="completed">
-              <div className="view">
-                <input className="toggle" type="checkbox" />
-                <label>Learn JavaScript</label>
-                <button className="destroy"></button>
-              </div>
-            </li>
-            <li>
-              <div className="view">
-                <input className="toggle" type="checkbox" />
-                <label>Learn React</label>
-                <button className="destroy"></button>
-              </div>
-            </li>
-            <li>
-              <div className="view">
-                <input className="toggle" type="checkbox" />
-                <label>Have a life!</label>
-                <button className="destroy"></button>
-              </div>
-            </li>
-          </ul>
-        </section>
-        <Footer />
-
+      <Footer />
     </div>
   );
 }
 
-export default list;
+export default List;
