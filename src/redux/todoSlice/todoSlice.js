@@ -7,12 +7,12 @@ export const todoSlice = createSlice({
       {
         id: "1",
         title: "Walk half hour!",
-        conplete: false,
+        completed: false,
       },
       {
         id: "2",
         title: "Work code!",
-        conplete: false,
+        completed: false,
       },
     ],
   },
