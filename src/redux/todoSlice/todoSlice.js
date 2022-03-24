@@ -16,7 +16,12 @@ export const todoSlice = createSlice({
       },
     ],
   },
-  reducers: {},
+  reducers: {
+    addList: (state, action) => {
+      state.items.push(action.payload);
+    },
+  },
 });
 
+export const { addList } = todoSlice.actions;
 export default todoSlice.reducer;
