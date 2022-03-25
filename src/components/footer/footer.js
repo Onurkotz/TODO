@@ -1,25 +1,50 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { changeActiveFilter } from "../../redux/todoSlice/todoSlice";
 
-function footer() {
+function Footer() {
+  const items = useSelector((state) => state.todo.items);
+  const filterList = items.filter((item) => !item.completed).length;
+
+  const activeFilter = useSelector((state) => state.todo.activeFilter);
+
+  const dispatch = useDispatch();
+
   return (
     <div>
       <footer className="footer">
         <span className="todo-count">
-          <strong>2</strong>
-          items left
+          <strong>{filterList} </strong>
+          item{filterList > 1 && "s"} left
         </span>
 
         <ul className="filters">
           <li>
-            <a href="#/" className="selected">
+            <a
+              href="#/"
+              className={activeFilter === "All" ? "selected" : ""}
+              onClick={() => dispatch(changeActiveFilter("All"))}
+            >
               All
             </a>
           </li>
           <li>
-            <a href="#/">Active</a>
+            <a
+              href="#/"
+              className={activeFilter === "Active" ? "selected" : ""}
+              onClick={() => dispatch(changeActiveFilter("Active"))}
+            >
+              Active
+            </a>
           </li>
           <li>
-            <a href="#/">Completed</a>
+            <a
+              href="#/"
+              className={activeFilter === "Completed" ? "selected" : ""}
+              onClick={() => dispatch(changeActiveFilter("Completed"))}
+            >
+              Completed
+            </a>
           </li>
         </ul>
 
@@ -29,4 +54,4 @@ function footer() {
   );
 }
 
-export default footer;
+export default Footer;

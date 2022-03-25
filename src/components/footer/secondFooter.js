@@ -16,4 +16,4 @@ function secondFooter() {
   );
 }
 
-export default secondFooter;
+export default React.memo(secondFooter);
