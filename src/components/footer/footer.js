@@ -63,3 +63,6 @@ function Footer() {
 }
 
 export default Footer;
+
+
+// You can create clean code by use Selector and Prepare. 
