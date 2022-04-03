@@ -2,7 +2,7 @@
 
 ## To Do App
 
-<img src="./screenShot/SS.png" style="width: 400px; height: 200px">
+<img src="./screenShot/SS.png" style="width: 400px; height: 350px">
 
 
 ## WHICH LANGUAGES DOES APP USE?
